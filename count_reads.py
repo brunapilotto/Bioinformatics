@@ -4,7 +4,8 @@ import argparse
 
 
 def menu():
-    parser = argparse.ArgumentParser(description="Count reads from fastq files in a directory")
+    parser = argparse.ArgumentParser(description="Count reads from fastq \
+                                                    files in a directory")
     parser.add_argument("--path",
                         required=True,
                         help="Path to the directory with fastq files")
@@ -15,7 +16,7 @@ def menu():
 def count_reads(file: str) -> int:
     with open(file, 'r') as f:
         lines = f.readlines()
-        return len(lines) / 4
+        return int(len(lines) / 4)
 
 
 def count_reads_in_directory(directory: str) -> None:
